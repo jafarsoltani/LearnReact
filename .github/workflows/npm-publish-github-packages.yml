@@ -18,13 +18,15 @@ jobs:
           cache-dependency-path: 'react-jobs/package-lock.json'
 
       - name: Install Dependencies
-        run: npm install  # Change to 'yarn install' if using Yarn
+        run: npm install
+        working-directory: './react-jobs'
 
       - name: Build React Package
-        run: npm run build  # Modify if your build command is different
+        run: npm run build  
+        working-directory: './react-jobs'
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: build-output
-          path: build
+          path: ./react-jobs/build
