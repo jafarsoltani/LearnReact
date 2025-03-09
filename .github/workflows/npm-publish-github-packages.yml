@@ -29,4 +29,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build-output
-          path: ./react-jobs/build
+          path: ./react-jobs/dist
