@@ -14,4 +14,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm ci
+          cache: 'npm'  # Change to 'yarn' if you're using Yarn
+
+      - name: Install Dependencies
+        run: npm install  # Change to 'yarn install' if using Yarn
+
+      - name: Build React Package
+        run: npm run build  # Modify if your build command is different
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-output
+          path: build
